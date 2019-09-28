@@ -1,6 +1,8 @@
-<?php 
+<?php
 
 include "fonctions.php";
+
+session_start();
 
 $db = connexion();
 
@@ -30,10 +32,8 @@ $data = $db->query("SELECT * FROM utilisateur")->fetchAll();
 				<td><?php echo $row['nom'] ?></td>
 				<td><?php echo $row['prenom'] ?></td>
 				<td><?php echo $row['email'] ?></td>
-				<form action="" method="post">
-					<td><input type="button" value="Supprimer"></td>
-					<td><input type="button" value="Modifier"></td>
-				</form>
+                <td><a href="suppVisiteur.php"><input type="button" value="Supprimer"></a><?php $_SESSION['id'] = $row['id']; ?></td>
+                <td><a href="modifVisiteur.php"><input type="button" value="Modifier"></a><?php $_SESSION['id'] = $row['id']; ?></td>
 			</tr>
 			<?php
 		}

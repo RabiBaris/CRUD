@@ -14,7 +14,7 @@ if (isset($_SESSION['data'])) {
 
 if (check($_POST)) {
 	$user = [$_POST['nom'], $_POST['prenom'], $_POST['email']];
-	var_dump($user);
+	//var_dump($user);
 
 	$data = [
 		'nom' => $_POST['nom'],
@@ -25,7 +25,7 @@ if (check($_POST)) {
 	$sql = "INSERT INTO utilisateur (id, nom, prenom, email) VALUES (null,:nom,:prenom,:email)";
 	$stmt= $db->prepare($sql);
 	$stmt->execute($data);
-	var_dump($sql);
+	//var_dump($sql);
 }
 ?>
 
